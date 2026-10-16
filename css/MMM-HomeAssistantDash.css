@@ -1,0 +1,279 @@
+/* MMM-HomeAssistantDash: mirror styling for mirrored HA dashboard cards. */
+
+.MMM-HomeAssistantDash {
+  --had-gauge-color: var(--color-text-bright, #fff);
+  --had-track: #222;
+  --had-gap: 28px;
+  --had-series-0: #fff;
+  --had-series-1: #4caf50;
+  --had-series-2: #2196f3;
+  --had-series-3: #ff9800;
+
+  text-align: left;
+}
+
+.had {
+  max-width: 100%;
+}
+
+.had-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--had-columns, 1), minmax(0, 1fr));
+  gap: var(--had-gap);
+  align-items: start;
+}
+
+.had-section {
+  display: grid;
+  grid-template-columns: repeat(var(--had-grid, 12), minmax(0, 1fr));
+  gap: 14px 18px;
+  align-content: start;
+}
+
+.had-card {
+  min-width: 0;
+}
+
+.had-stale .had-grid {
+  opacity: 0.45;
+}
+
+.had-status {
+  margin-top: 10px;
+}
+
+/* Heading: same look as a MagicMirror module header. */
+.had-heading {
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--color-text-dimmed, #666);
+  line-height: 15px;
+  padding-bottom: 5px;
+  margin-bottom: 4px;
+  color: var(--color-text, #999);
+}
+
+.had-icon {
+  line-height: 1;
+}
+
+/* Tile */
+.had-tile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.had-tile-icon {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-text-dimmed, #666);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--color-text, #999);
+}
+
+.had-tile-icon.had-active {
+  border-color: var(--color-text-bright, #fff);
+  color: var(--color-text-bright, #fff);
+}
+
+.had-tile-text {
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.had-name {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Entity card */
+.had-entity-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.had-entity-head .had-icon {
+  font-size: 22px;
+  color: var(--color-text, #999);
+}
+
+.had-entity-value {
+  line-height: 1.1;
+}
+
+.had-big {
+  font-size: 2rem;
+}
+
+.had-unit {
+  margin-left: 6px;
+}
+
+/* Entities / glance rows */
+.had-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1.6;
+}
+
+.had-row-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Gauge */
+.had-gauge {
+  text-align: center;
+}
+
+.had-gauge-dial {
+  position: relative;
+  width: min(100%, 260px);
+  margin: 0 auto;
+  aspect-ratio: 1;
+}
+
+.had-gauge-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.had-gauge-svg path {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.had-ring-bg {
+  stroke: var(--had-track);
+}
+
+.had-gauge-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.had-gauge-value {
+  font-size: 2.75rem;
+}
+
+.had-gauge-unit {
+  font-size: 0.4em;
+  margin-left: 2px;
+}
+
+.had-gauge-secondary {
+  font-size: var(--font-size-medium, 1.5rem);
+  margin-top: 4px;
+}
+
+.had-gauge-secondary .had-gauge-unit {
+  font-size: 0.6em;
+}
+
+.had-gauge-icon {
+  font-size: 26px;
+  margin-top: 10px;
+  color: var(--color-text, #999);
+}
+
+.had-gauge-name {
+  margin-top: -18px;
+}
+
+/* Statistics chart */
+.had-chart-plot {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: 110px auto;
+  column-gap: 8px;
+}
+
+.had-chart-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: right;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.had-chart-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.had-gridline {
+  stroke: var(--had-track);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.had-series-0 { color: var(--had-series-0); fill: currentColor; stroke: currentColor; }
+.had-series-1 { color: var(--had-series-1); fill: currentColor; stroke: currentColor; }
+.had-series-2 { color: var(--had-series-2); fill: currentColor; stroke: currentColor; }
+.had-series-3 { color: var(--had-series-3); fill: currentColor; stroke: currentColor; }
+
+rect.had-series {
+  stroke: none;
+  opacity: 0.85;
+}
+
+.had-line {
+  fill: none;
+  stroke-width: 2;
+}
+
+.had-chart-times {
+  grid-column: 2;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  line-height: 1;
+}
+
+.had-chart-legend {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+
+.had-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.had-swatch {
+  display: inline-block;
+  background: currentColor;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.had-chart-empty {
+  padding: 30px 0;
+  text-align: center;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "mmm-homeassistantdash",
+  "version": "0.1.0",
+  "description": "MagicMirror² module that mirrors a Home Assistant dashboard, drawn natively and updated live over the WebSocket API.",
+  "main": "MMM-HomeAssistantDash.js",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "probe": "node --env-file=.env.local scripts/probe.js"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "home-assistant-js-websocket": "^9.7.1"
+  },
+  "devDependencies": {
+    "ws": "^8.22.0"
+  }
+}

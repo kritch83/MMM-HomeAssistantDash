@@ -1,0 +1,9 @@
+{
+  "sensor.charlie_current_export": { "state": "0", "attributes": { "device_class": "current", "friendly_name": "chargie Current Export", "icon": "mdi:ev-station", "state_class": "measurement", "unit_of_measurement": "A" } },
+  "sensor.charlie_energy_active_import_register": { "state": "6845.5292", "attributes": { "device_class": "energy", "friendly_name": "chargie Energy Active Import Register", "icon": "mdi:ev-station", "state_class": "total_increasing", "unit_of_measurement": "kWh" } },
+  "sensor.charlie_energy_session": { "state": "9.57600000000002", "attributes": { "device_class": "energy", "friendly_name": "chargie Energy Session", "icon": "mdi:ev-station", "state_class": "total_increasing", "unit_of_measurement": "kWh" } },
+  "sensor.charlie_power_active_import": { "state": "0", "attributes": { "device_class": "power", "friendly_name": "chargie Power Active Import", "icon": "mdi:ev-station", "state_class": "measurement", "unit_of_measurement": "kW" } },
+  "sensor.charlie_status_connector": { "state": "Available", "attributes": { "friendly_name": "chargie Status Connector", "icon": "mdi:ev-station" } },
+  "sensor.charlie_voltage": { "state": "0.25", "attributes": { "device_class": "voltage", "friendly_name": "chargie Voltage", "icon": "mdi:ev-station", "state_class": "measurement", "unit_of_measurement": "V" } },
+  "switch.charlie_charge_control": { "state": "off", "attributes": { "friendly_name": "chargie Charge Control", "icon": "mdi:ev-station" } }
+}

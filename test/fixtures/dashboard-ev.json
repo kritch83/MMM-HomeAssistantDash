@@ -1,0 +1,107 @@
+{
+  "views": [
+    {
+      "type": "sections",
+      "sections": [
+        {
+          "type": "grid",
+          "cards": [
+            { "type": "heading", "heading": "New section" },
+            {
+              "type": "custom:modern-circular-gauge",
+              "entity": "sensor.charlie_current_export",
+              "name": "Current Draw",
+              "unit": "A",
+              "min": 0,
+              "max": 32,
+              "decimals": 2,
+              "needle": false,
+              "header_position": "bottom",
+              "show_header": true,
+              "show_state": true,
+              "show_unit": true,
+              "unit_superscript": true,
+              "gauge_type": "standard",
+              "gauge_radius": 41,
+              "gauge_background_style": { "opacity": 1, "width": 6 },
+              "gauge_foreground_style": { "opacity": 1, "width": 1 },
+              "grid_options": { "columns": 12, "rows": 6 },
+              "secondary": {
+                "entity": "sensor.charlie_power_active_import",
+                "unit": "kW",
+                "min": 0,
+                "max": 7.3,
+                "decimals": 2,
+                "needle": false,
+                "show_gauge": "inner",
+                "show_state": true,
+                "show_unit": true,
+                "state_size": "small",
+                "unit_superscript": true,
+                "gauge_radius": 49,
+                "gauge_background_style": { "width": 6 },
+                "gauge_foreground_style": { "color": "green", "width": 1 }
+              }
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "cards": [
+            { "type": "heading", "heading": "New section" },
+            {
+              "type": "tile",
+              "entity": "switch.charlie_charge_control",
+              "features": [{ "type": "toggle" }]
+            },
+            {
+              "type": "entity",
+              "entity": "sensor.charlie_status_connector",
+              "icon": "mdi:lightning-bolt",
+              "name": "Status",
+              "state_color": false
+            },
+            {
+              "type": "tile",
+              "entity": "sensor.charlie_energy_session",
+              "grid_options": { "columns": "full", "rows": 1 }
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "column_span": 3,
+          "cards": [
+            { "type": "heading", "heading": "New section" },
+            {
+              "type": "statistics-graph",
+              "chart_type": "bar",
+              "days_to_show": 7,
+              "entities": ["sensor.charlie_energy_active_import_register"],
+              "period": "day",
+              "stat_types": ["sum"],
+              "hide_legend": false,
+              "expand_legend": false,
+              "logarithmic_scale": false,
+              "grid_options": { "columns": 21, "rows": "auto" }
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "cards": [
+            { "type": "heading", "heading": "New section" },
+            {
+              "type": "statistics-graph",
+              "chart_type": "line",
+              "days_to_show": 1,
+              "entities": ["sensor.charlie_voltage"],
+              "period": "hour",
+              "stat_types": ["mean"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
