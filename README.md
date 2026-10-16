@@ -30,17 +30,62 @@ The mirror only reads, so give it its own non-admin login:
 
 ## 2. Install on the mirror
 
-Copy this folder to the Pi, for example from your computer:
+The repository is private, so the Pi needs read access to it before it can clone. Pick one of the two options below.
+
+### Option A: deploy key (recommended)
+
+A deploy key gives the Pi read-only access to this one repository and nothing else on your GitHub account.
+
+On the Pi, create a key and print its public half:
 
 ```bash
-rsync -av --exclude node_modules --exclude .env.local --exclude .claude ./ pi@magicmirror.local:~/MagicMirror/modules/MMM-HomeAssistantDash/
+ssh-keygen -t ed25519 -N "" -C "magicmirror" -f ~/.ssh/mmm_homeassistantdash
+cat ~/.ssh/mmm_homeassistantdash.pub
 ```
 
-Then on the Pi:
+On GitHub, open the repository's **Settings → Deploy keys → Add deploy key**, paste the key, and leave **Allow write access** off.
+
+Back on the Pi, tell SSH to use that key for this repository by adding this to `~/.ssh/config`:
+
+```
+Host github-mmm-had
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/mmm_homeassistantdash
+  IdentitiesOnly yes
+```
+
+Then clone through that host alias. The first connection asks you to confirm GitHub's host key; answer `yes`.
+
+```bash
+cd ~/MagicMirror/modules && git clone git@github-mmm-had:kritch83/MMM-HomeAssistantDash.git
+```
+
+### Option B: GitHub CLI
+
+Simpler, but `gh auth login` gives the Pi access to everything your GitHub account can reach, not just this repository.
+
+```bash
+sudo apt install gh
+gh auth login
+cd ~/MagicMirror/modules && gh repo clone kritch83/MMM-HomeAssistantDash
+```
+
+### Install the dependencies
+
+Either way, finish with:
 
 ```bash
 cd ~/MagicMirror/modules/MMM-HomeAssistantDash && npm install --omit=dev
 ```
+
+### Updating later
+
+```bash
+cd ~/MagicMirror/modules/MMM-HomeAssistantDash && git pull && npm install --omit=dev
+```
+
+Then restart MagicMirror (for example `pm2 restart MagicMirror` if you run it with pm2).
 
 ## 3. Configure
 
